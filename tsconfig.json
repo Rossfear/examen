@@ -4,8 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
+    "strict": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -23,9 +22,10 @@
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": false,
-    "strictInputAccessModifiers": false,
+    "strictNullChecks": false,
     "strictTemplates": false,
-    "strictPropertyInitialization": false
+    "fullTemplateTypeCheck": false,
+    "preserveWhitespaces": true
+
   }
 }

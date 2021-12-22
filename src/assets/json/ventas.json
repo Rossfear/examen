@@ -1,0 +1,38 @@
+[
+    {
+        "id" : "VEN-001",
+        "cliente" : "JUAN PEREZ",
+        "idvendedor": 1,
+        "totalVenta" : 1200,
+        "totalDescuento": 36,
+        "porcentajeDesc": 3,
+        "fechaProg": "15/12/2021"
+    },
+    {
+        "id" : "VEN-002",
+        "cliente" : "DIEGO RODRIGUEZ",
+        "idvendedor": 2,
+        "totalVenta" : 1300,
+        "totalDescuento": 52,
+        "porcentajeDesc": 4,
+        "fechaProg": "15/12/2021"
+    },
+    {
+        "id" : "VEN-003",
+        "cliente" : "TOM BRAIDY",
+        "idvendedor": 3,
+        "totalVenta" : 1400,
+        "totalDescuento": 70,
+        "porcentajeDesc": 5,
+        "fechaProg": "15/12/2021"
+    },
+    {
+        "id" : "VEN-004",
+        "cliente" : "TOBBIE ARMANDO",
+        "idvendedor": 4,
+        "totalVenta" : 1500,
+        "totalDescuento": 90,
+        "porcentajeDesc": 6,
+        "fechaProg": "15/12/2021"
+    }
+]

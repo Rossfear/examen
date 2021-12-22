@@ -1,0 +1,17 @@
+[
+    {
+        "id" : 1,
+        "denominacion" : "Examen médico AI",
+        "precio" : 150
+    },
+    {
+        "id" : 2,
+        "denominacion" : "Prueba psicológica AI",
+        "precio" : 100
+    },
+    {
+        "id" : 3,
+        "denominacion" : "Clases de Manejo ",
+        "precio" : 45
+    }
+]

@@ -5,6 +5,8 @@ import { ComponentsModule } from '../components/components.module';
 import { UsuarioComponent } from './mantenimiento/usuario/usuario.component';
 import { DemoMaterialModule } from '../material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,6 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserModule,
+    BrowserAnimationsModule,
   ]
 })
 export class ViewModule { }

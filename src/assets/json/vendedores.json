@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1,
+        "nombre" : "David",
+        "montoVenta" : 1000,
+        "nVentas": 5
+    },
+    {
+        "id" : 2,
+        "nombre" : "Diego",
+        "montoVenta" : 1200,
+        "nVentas": 6
+    },
+    {
+        "id" : 3,
+        "nombre" : "Requelme",
+        "montoVenta" : 1300,
+        "nVentas": 7
+    },
+    {
+        "id" : 4,
+        "nombre" : "Ximena",
+        "montoVenta" : 1400,
+        "nVentas": 8
+    }
+]

@@ -45,3 +45,43 @@ input[type="number"]::-webkit-outer-spin-button {
 img, svg {
   display: block;
 }
+
+
+.error {
+  box-shadow: 0 0 3px #d45252;
+  border-color: #e74c3c;
+}
+
+
+/* Border para exito de un input */
+
+.success {
+  box-shadow: 0 0 3px #5cd053;
+  border-color: #2ecc71;
+}
+
+
+.forms-control {
+  @apply px-2;
+  @apply py-2;
+  @apply rounded;
+  @apply text-sm;
+  @apply text-gray-700;
+  @apply border;
+  @apply border-gray-300;
+  transition: 200ms;
+}
+
+.labelclass {
+  @apply text-gray-900;
+  @apply block;
+  @apply font-medium;
+  @apply text-sm;
+  @apply w-full;
+  @apply pb-1;
+}
+
+.btn {
+  @apply px-6;
+  @apply py-2;
+}
