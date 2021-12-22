@@ -1,0 +1,54 @@
+<app-loading> </app-loading>
+<section class="fondo  text-base text-black font-Poppins ">
+    <div class=" animate__animated animate__zoomIn flex w-full h-full items-center gap-3 justify-center ">
+        <form action="" class=" border-8 border-white conte rounded-xl p-5 bg-white h-[80vh] w-[80%] ">
+            <div class="flex w-full  md:space-y-0  md:flex-row flex-col h-full   space-x-0  justify-between lg:w-full lg:h-full  ">
+                <div class="md:w-6/12 hidden md:flex      w-full md:mt-0 mt-10  justify-center">
+                   <div class="items-center text-4xl ">Rousita eres la mejor</div>
+                </div>
+                <div class="md:w-6/12 h-full    flex items-center justify-center   w-full">
+                    <section class="md:w-8/12 sm:w-10/12 w-11/12  h-11/12  rounded-md   2xl:pr-0   shadow-2xl border-8 bg-gray-600 border-white lg:pb-16 lg:pt-14 pb-9 pt-6 ">
+                        <div class="flex justify-start font-grande text-xl   px-5   2xl:px-10 xl:px-12 w-full "><img src="assets/img/login/mano.svg" alt=""></div>
+                        <span class="flex justify-start font-grande text-xl msg-bienvenido  text-white px-5  2xl:py-3 2xl:px-10 xl:px-12 w-full py-2">Hola, <br> Bienvenido a Mi Pagina</span>
+                        <form  class=" space-y-4 2xl:py-3 2xl:px-10 xl:px-10 w-full py-4 px-5  ">
+
+                            <div class="relative  w-full focus-within:text-gray-600 text-gray-400">
+                                <input  type="number"
+                                        class=" left-0 flex pr-4  py-3 text-sm border-1 focus:ring-gray-500 rounded-sm focus:border-azul-800 w-full  border-gray-300  focus:outline-none shadow text-gray-600"
+
+                                        placeholder="N° de Ruc"
+                                        required
+                                        formControlName="ruc"
+                                        >
+                                <div class="absolute top-4 pl-3 right-3 flex">
+                                    <svg-icon src="assets/img/svg/ruc.svg" ></svg-icon>
+                                </div>
+
+                            </div>
+
+                            <div class="relative  w-full focus-within:text-gray-600 text-gray-400">
+                                <input  type="password"
+                                        class="left-0 flex pr-4  py-3 text-sm border-1 focus:ring-gray-500 rounded-sm focus:border-azul-500 w-full  border-gray-300  focus:outline-none shadow text-gray-600"
+
+                                        placeholder="Código de acceso"
+                                        required
+                                        formControlName="codigoacceso"
+                                        >
+                                <div class="absolute top-4 pl-3 right-3 flex">
+                                    <svg-icon src="assets/img/svg/codigo.svg" ></svg-icon>
+                                </div>
+
+                            </div>
+
+                            <div class="flex items-cen[ter pt-7 xl:pt-9">
+                                <button [routerLink]="['/inicio']" type="submit" class=" text-white  bg-blue-900 hover:bg-blue-700  text-sm focus:outline-none w-full px-5 py-3 rounded flex  items-center">
+                                    <span class="flex justify-center w-full text-sm font-grande">Ingresar</span>
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
