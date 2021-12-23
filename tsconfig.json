@@ -20,12 +20,5 @@
       "dom"
     ]
   },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictNullChecks": false,
-    "strictTemplates": false,
-    "fullTemplateTypeCheck": false,
-    "preserveWhitespaces": true
 
-  }
 }

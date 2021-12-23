@@ -2,7 +2,7 @@
     {
         "id" : "VEN-001",
         "cliente" : "JUAN PEREZ",
-        "idvendedor": 1,
+        "vendedor": "David",
         "totalVenta" : 1200,
         "totalDescuento": 36,
         "porcentajeDesc": 3,
@@ -11,7 +11,7 @@
     {
         "id" : "VEN-002",
         "cliente" : "DIEGO RODRIGUEZ",
-        "idvendedor": 2,
+        "vendedor": "Diego",
         "totalVenta" : 1300,
         "totalDescuento": 52,
         "porcentajeDesc": 4,
@@ -20,7 +20,7 @@
     {
         "id" : "VEN-003",
         "cliente" : "TOM BRAIDY",
-        "idvendedor": 3,
+        "vendedor": "Requelme",
         "totalVenta" : 1400,
         "totalDescuento": 70,
         "porcentajeDesc": 5,
@@ -29,10 +29,19 @@
     {
         "id" : "VEN-004",
         "cliente" : "TOBBIE ARMANDO",
-        "idvendedor": 4,
+        "vendedor": "Ximena",
         "totalVenta" : 1500,
         "totalDescuento": 90,
         "porcentajeDesc": 6,
         "fechaProg": "15/12/2021"
+    },
+    {
+      "id" : "VEN-005",
+      "cliente" : "JUAN PEREZ",
+      "vendedor": "David",
+      "totalVenta" : 1200,
+      "totalDescuento": 36,
+      "porcentajeDesc": 3,
+      "fechaProg": "15/12/2021"
     }
 ]

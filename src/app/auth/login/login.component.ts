@@ -9,6 +9,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 export class LoginComponent implements OnInit {
 
+  msj: string = null;
+
   constructor(
     private spinner:     NgxSpinnerService,
 

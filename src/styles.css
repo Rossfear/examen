@@ -72,6 +72,30 @@ img, svg {
   transition: 200ms;
 }
 
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    padding: 0px 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    padding: 4px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.contenidoautocompletado>table>tbody>tr {
+  padding: 10px;
+  font-family: sans-serif;
+  color: #808080;
+  cursor: pointer;
+}
+
+
 .labelclass {
   @apply text-gray-900;
   @apply block;

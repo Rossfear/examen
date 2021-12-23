@@ -22,7 +22,7 @@ export class UsuarioComponent implements OnInit {
   precio: number = 0;
   countndoc: number = 0;
   totalVenta: number = 0;
-  msjerror: string = null;
+  msj: string = null;
 
   fechaActual: any = new Date();
 
@@ -124,17 +124,26 @@ export class UsuarioComponent implements OnInit {
     const id         = 'VEN-'+length;
     const valorDesc  = Number(body.descuento) ?? 0;
     const descmonto  = this.precio / 100 * valorDesc;
+    const ven        = this.listaVendedores.find( x =>  x.id === body.vendedor);
 
 
     this.ventaActual.id           = id;
     this.ventaActual.fechaProg    = this.sfn.convertFecha(body.fecha)
     this.ventaActual.cliente      = body.cliente;
-    this.ventaActual.idvendedor   = body.vendedor;
+    this.ventaActual.vendedor     = ven.nombre;
 
     this.ventaActual.totalDescuento = this.sfn.roundDecimal(descmonto, 4);
     this.ventaActual.totalVenta     = this.sfn.roundDecimal(this.precio - descmonto, 2);
 
     console.log(this.ventaActual);
+
+    this.msj = 'REGISTRO CORRECTO';
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.createFormReg();
+      this.spinner.hide();
+    }, 3500)
   }
 
 
@@ -152,7 +161,7 @@ export class UsuarioComponent implements OnInit {
   exeception( error: any ) {
 
     const e  = error.error ?? 'ocurrió un error';
-    this.msjerror = e;
+    this.msj = e;
     this.spinner.hide();
   }
 }

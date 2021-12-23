@@ -4,7 +4,7 @@
 export interface IVenta {
   id:             string;
   cliente:        string;
-  idvendedor:     number;
+  vendedor:       string;
   totalVenta:     number;
   totalDescuento: number;
   porcentajeDesc: number;
