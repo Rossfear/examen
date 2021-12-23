@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -15,18 +16,17 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     LoginComponent,
-    LoadingComponent
   ],
   imports: [
     CommonModule,
-    NgxSpinnerModule,
+    CoreModule,
     // Angular Material
     DemoMaterialModule,
     // svg-icon
     HttpClientModule,
     AngularSvgIconModule.forRoot() ,
     // spinner
-    NgxSpinnerModule,
+
     AppRoutingModule,
     RouterModule
 

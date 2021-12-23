@@ -7,6 +7,8 @@ import { DemoMaterialModule } from '../material-module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -14,11 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     InicioComponent,
     UsuarioComponent,
+
   ],
   imports: [
     CommonModule,
     ComponentsModule,
     DemoMaterialModule,
+    CoreModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,

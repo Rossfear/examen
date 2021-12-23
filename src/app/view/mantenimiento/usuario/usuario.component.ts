@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
+import { IServicio } from 'src/app/interfaces/servicio';
 import { IVendedor } from 'src/app/interfaces/vendedor';
+import { IVenta } from 'src/app/interfaces/venta';
+import { FuncionesService } from 'src/app/services/funciones.service';
 import { MantenimientoService } from 'src/app/services/mantenimiento.service';
 import { ValidatorsService } from 'src/app/services/validators.service';
 
@@ -15,16 +18,21 @@ export class UsuarioComponent implements OnInit {
 
   form: FormGroup;
 
+  codMoneda: string;
+  precio: number = 0;
   countndoc: number = 0;
   msjerror: string = null;
 
-  fechaActual = new Date();
+  fechaActual: any = new Date();
 
-  //listaVendedores:   Array<IVendedor>  = [];
-  listaVendedores : Array<IVendedor> = [];
+  listaVendedores  : Array<IVendedor> = [];
+  listaServicios   : Array<IServicio> = [];
+  listaVentas      : Array<IVenta> = [];
+  ventaActual      = {} as IVenta ;
 
   constructor(
     private fb:          FormBuilder,
+    private sfn:         FuncionesService,
     private svalidator:  ValidatorsService,
     private smante:      MantenimientoService,
     private spinner:     NgxSpinnerService,
@@ -32,6 +40,7 @@ export class UsuarioComponent implements OnInit {
   ) {
     this.createFormReg();
     this.countndoc = 0;
+    this.codMoneda = 'PEN';
 
   }
 
@@ -44,9 +53,7 @@ export class UsuarioComponent implements OnInit {
     this.form = this.fb.group({
       cliente         : [ '', [ Validators.required, Validators.minLength(3) ] ],
       numerodocumento : [ '', [ Validators.required, Validators.maxLength(11)] ],
-      idvendedor      : [ 0 ],
       vendedor        : [ '', [ Validators.required]],
-      idservicio      : [ 0 ],
       servicio        : [ '', [ Validators.required]],
       descuento       : [ '',  [ Validators.required]],
       fecha           : [this.fechaActual, [ Validators.required]]
@@ -73,22 +80,59 @@ export class UsuarioComponent implements OnInit {
     return this.svalidator.controlInvalid('descuento', this.form);
   }
 
-  obtenerListaVendedores() {
+  async obtenerListaVendedores() {
 
     this.smante.getvendedores().then( x => {
 
       this.listaVendedores = x;
-      console.log(this.listaVendedores);
-      this.spinner.hide();
+
+      this.smante.getservicios().then( s => {
+
+        this.listaServicios = s;
+
+        this.smante.getventas().then( v => {
+
+          this.listaVentas = v;
+          this.spinner.hide();
+
+        }, err => this.exeception(err))
+
+      }, err => this.exeception(err));
 
     }, err => this.exeception(err));
 
   }
 
+
+  cambiarServicio(idServicio: number) {
+
+    const ser = this.listaServicios.find( s => s.id === idServicio);
+    this.precio = ser.precio;
+  }
+
   guardarCita() {
+
     if( this.form.invalid ){
       return this.svalidator.emptyData( this.form )
     }
+
+
+    const body = this.form.value;
+
+    const id         = 'VEN-'+this.listaVentas.length + 1;
+    const valorDesc  = Number(body.descuento) ?? 0;
+    const descmonto  = this.precio / 100 * valorDesc;
+
+
+    this.ventaActual.id           = id;
+    this.ventaActual.fechaProg    = this.sfn.convertFecha(body.fecha)
+    this.ventaActual.cliente      = body.cliente;
+    this.ventaActual.idvendedor   = body.vendedor;
+
+    this.ventaActual.totalDescuento = this.sfn.roundDecimal(descmonto, 4);
+    this.ventaActual.totalVenta     = this.sfn.roundDecimal(this.precio - descmonto, 2);
+
+    console.log(this.ventaActual);
   }
 
   exeception( error: any ) {

@@ -1,136 +1,137 @@
 <app-navbar></app-navbar>
+
+<app-loading> </app-loading>
+
 <header>
-
-  <!-- <fieldset class=" w-full sm:w-9/12  lg:w-3/12 px-2">
-    <label class=" w-full md:pb-1 text-sm font-medium text-plomo-21">
-        Fecha de atención
-    </label>
-  </fieldset> -->
-
-
-
-
 </header>
 
 <body class="content-center">
 
-  <section>
-
-
-  </section>
-
-
-
   <div class="justify-center items-center flex">
     <div class="inline-block align-bottom bg-white rounded-lg text-left  sm:max-h-8 sm:w-full" >
-        <div class="bg-white pt-1 p-2 px-3">
-            <div class="relative w-auto  mx-auto max-w-7xl">
+      <div class="bg-white pt-1 p-2 px-3">
+        <div class="relative w-auto  mx-auto max-w-7xl">
 
-                <header class="flex justify-between items-center border-b border-gray-100 pb-2">
-                    <h2 class="text-red-600 text-sm font-medium uppercase">Programar Cita</h2>
-                </header>
+          <br><br><br>
 
+          <header class="flex justify-between items-center border-b border-gray-100 pb-2">
+              <h2 class="text-red-600 text-sm font-medium uppercase">Programar Cita</h2>
+          </header>
 
-                <!-- CONTENIDO -->
-                <main class="relative sm:p-2 flex-auto  pt-2 overflow-y-scroll md:overflow-hidden h-96 sm:h-auto">
-                    <form [formGroup]="form" (ngSubmit)="guardarCita()"  class="grid grid-cols-1 sm:grid-cols-2 gap-x-2">
+          <!-- CONTENIDO -->
+          <section class="relative sm:p-2 flex-auto  pt-2 overflow-y-scroll md:overflow-hidden h-96 sm:h-auto">
+            <form [formGroup]="form" (ngSubmit)="guardarCita()"  class="grid grid-cols-1 sm:grid-cols-2 gap-x-2">
 
-                      <!-- VENDEDOR -->
-                        <div class=" w-full sm:mb-1">
-                            <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1"> Vededores: </label>
+              <!-- VENDEDOR -->
+              <div class=" w-full sm:mb-1">
+                  <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1"> Vededores: </label>
 
-                            <!-- SELECT VENDEDOR-->
-                            <mat-select formControlName="vendedor" required placeholder="Seleccione una opcion"
-                                class="text-sm forms-control  focus mb-1" [class.error]="vendedorInvalid">
-                                <mat-option *ngFor="let item of listaVendedores" [value]="item.id">{{ item.nombre }}</mat-option>
-                            </mat-select>
-                            <p *ngIf="vendedorInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
-                        </div>
+                  <!-- SELECT VENDEDOR-->
+                  <mat-select formControlName="vendedor" required placeholder="Seleccione una opcion"
+                      class="text-sm forms-control  focus mb-1" [class.error]="vendedorInvalid">
+                      <mat-option *ngFor="let item of listaVendedores" [value]="item.id">{{ item.nombre }}</mat-option>
+                  </mat-select>
+                  <p *ngIf="vendedorInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
+              </div>
 
-                      <!-- SERVICIO  -->
-                        <div class=" w-full sm:mb-1">
-                            <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1"> Vededores: </label>
+                <!-- FECHA -->
+                <div  class=" w-full sm:mb-1">
 
-                            <!-- SELECT SERVICIO-->
-                            <mat-select formControlName="servicio" required placeholder="Seleccione una opcion"
-                                class="text-sm forms-control  focus mb-1" [class.error]="servicioInvalid">
-                                <mat-option *ngFor="let item of listaVendedores" [value]="item.id">{{ item.nombre }}</mat-option>
-                            </mat-select>
-                            <p *ngIf="servicioInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
-                        </div>
-
-                        <!-- Numero de Identificación -->
-                        <div class=" w-full sm:mb-1 ">
-
-                            <label class="labelclass relative">Número de Identificación
-                                <div  class="absolute top-0   -ml-1 right-4 -mr-2 w-5 h-5 text-sm animate-ping  font-medium text-center bg-red-600 border-white text-white rounded-full"></div>
-                                <div  class="absolute top-0   -ml-1 right-4 -mr-2 w-5 h-5 text-sm  border-white font-medium text-center bg-red-600 text-white rounded-full">{{ countndoc }}</div>
-                            </label>
-                            <input  type="number" name="numerodocumento" class="text-sm forms-control w-full  focus mb-1"
-                                [class.error]="false" required placeholder="Ingresa una Identificación"
-                                formControlName="numerodocumento">
-
-                            <p *ngIf="nDocumentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
-                        </div>
-
-                        <!-- Nombre Completo -->
-                        <div class="w-full sm:mb-1">
-                            <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1">Nombre Completo:</label>
-
-                            <input type="text" class=" uppercase text-sm forms-control py-1  w-full focus mb-1"
-                                [class.error]="clienteInvalid" placeholder="Ingresa un Nombre" required
-                                formControlName="cliente">
-                            <p *ngIf="clienteInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
-                        </div>
+                <label class=" labelclass">Fecha de Atención:</label>
+                <mat-form-field appearance="fill" style="width: 100%" >
+                  <input  class=" uppercase text-sm forms-control py-1  w-full focus mb-1"
+                            matInput [matDatepicker]="picker" formControlName="fecha">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
 
 
-                        <!-- fecha -->
-                        <div  class=" w-full sm:mb-1">
-                          <label class=" labelclass">Fecha de Atención:</label>
-                          <input  class=" uppercase text-sm forms-control py-1  w-full focus mb-1"
-                                  matInput [matDatepicker]="picker"
-                                  formControlName="fecha">
-                          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                          <mat-datepicker #picker></mat-datepicker>
-                        </div>
+              <!-- Numero de Identificación -->
+              <div class=" w-full sm:mb-1 ">
 
-                        <!-- Telefono / Celular -->
-                        <div class=" w-full sm:mb-1">
-                            <label class=" labelclass">Ingrese % descuento:</label>
-                            <input class="text-sm forms-control py-1 w-full focus mb-1"
-                                [class.error]="descuentoInvalid" placeholder="Ingresa Telefono/Celular"
-                                formControlName="descuento">
+                  <label class="labelclass relative">Número de Identificación
+                      <div  class="absolute top-0   -ml-1 right-4 -mr-2 w-5 h-5 text-sm animate-ping  font-medium text-center bg-red-600 border-white text-white rounded-full"></div>
+                      <div  class="absolute top-0   -ml-1 right-4 -mr-2 w-5 h-5 text-sm  border-white font-medium text-center bg-red-600 text-white rounded-full">{{ countndoc }}</div>
+                  </label>
+                  <input  type="number" name="numerodocumento" class="text-sm forms-control w-full  focus mb-1"
+                      [class.error]="false" required placeholder="Ingresa una Identificación"
+                      formControlName="numerodocumento">
 
-                            <p *ngIf="descuentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este
-                                campo.</p>
+                  <p *ngIf="nDocumentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
+              </div>
 
-                        </div>
+              <!-- Nombre Completo -->
+              <div class="w-full sm:mb-1">
+                  <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1">Nombre Completo:</label>
+
+                  <input type="text" class=" uppercase text-sm forms-control py-1  w-full focus mb-1"
+                      [class.error]="clienteInvalid" placeholder="Ingresa un Nombre" required
+                      formControlName="cliente">
+                  <p *ngIf="clienteInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
+              </div>
+
+              <!-- Descuento -->
+              <div class=" w-full sm:mb-1">
+                  <label class=" labelclass">Ingrese % descuento:</label>
+                  <input class="text-sm forms-control py-1 w-full focus mb-1"
+                      [class.error]="descuentoInvalid" placeholder="5"
+                      formControlName="descuento">
+
+                  <p *ngIf="descuentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este
+                      campo.</p>
+
+              </div>
+
+              <!-- SERVICIO  -->
+              <div class=" w-full sm:mb-1">
+
+              </div>
 
 
-                        <footer class="flex items-center justify-center sm:justify-start sm:p-3 sm:space-x-4">
-                            <!-- Boton Guardar -->
-                            <button
-                                class=" text-white border border-solid border-red-500 bg-red-500 text-sm hover:bg-red-600 transition duration-300 ease-in font-medium uppercase px-4 sm:px-8 py-2 rounded outline-none focus:outline-none mr-2 mb-1"
-                                type="submit" style="transition: all .15s ease">
-                                Guardar
-                            </button>
+              <!-- SERVICIO  -->
+              <div class=" w-full sm:mb-1">
+                <label class="text-gray-800 font-medium flex items-center text-sm w-full pb-1"> Servicios: </label>
 
-                            <!-- Boton Cancelar -->
-                            <button
-                                class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-100  active:bg-red-600 font-medium uppercase text-sm px-4 sm:px-8 py-2 rounded outline-none focus:outline-none mr-1 mb-1"
-                                type="button" style="transition: all .15s ease">
-                                Cancelar
-                            </button>
-                        </footer>
+                <!-- SELECT SERVICIO-->
+                <mat-select (selectionChange)="cambiarServicio($event.value)"
+                    formControlName="servicio" required placeholder="Seleccione una opcion"
+                    class="text-sm forms-control  focus mb-1" [class.error]="servicioInvalid">
+                    <mat-option *ngFor="let item of listaServicios" [value]="item.id">{{ item.denominacion }}</mat-option>
+                </mat-select>
+                <p *ngIf="servicioInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
 
-                    </form>
-                </main>
-            </div>
+              </div>
+
+              <!-- PRECIO -->
+              <div class=" w-full sm:mb-1">
+                <h2 class="my-1 text-sm font-medium text-green-700 pt-8 pl-10"> {{ precio | currency: codMoneda}} </h2>
+              </div>
+
+              <footer class="flex items-center justify-center sm:justify-end sm:p-3 sm:space-x-4">
+                <!-- Boton Guardar -->
+                <button
+                    class=" text-white border border-solid border-red-500 bg-red-500 text-sm hover:bg-red-600 transition duration-300 ease-in font-medium uppercase px-4 sm:px-8 py-2 rounded outline-none focus:outline-none mr-2 mb-1"
+                    type="submit" style="transition: all .15s ease">
+                    Guardar
+                </button>
+
+                <!-- Boton Cancelar -->
+                <button
+                    class="text-red-500 bg-transparent border border-solid border-red-500 hover:bg-red-100  active:bg-red-600 font-medium uppercase text-sm px-4 sm:px-8 py-2 rounded outline-none focus:outline-none mr-1 mb-1"
+                    type="button" style="transition: all .15s ease">
+                    Cancelar
+                </button>
+              </footer>
+
+            </form>
+          </section>
+
 
 
         </div>
+      </div>
     </div>
-
   </div>
 
 </body>

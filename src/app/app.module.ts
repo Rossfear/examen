@@ -6,7 +6,7 @@ import { DemoMaterialModule } from './material-module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { NgxSpinnerModule } from "ngx-spinner";
 
 
@@ -14,9 +14,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { ViewModule } from './view/view.module';
 
+import { MAT_DATE_LOCALE } from '@angular/material/core'; // Calendario En español
+import { registerLocaleData } from '@angular/common';
 
-// import 'animate.css';
+import LocaleEsPe from '@angular/common/locales/es-PE.js';
 
+registerLocaleData(LocaleEsPe);
 
 
 @NgModule({
@@ -40,7 +43,16 @@ import { ViewModule } from './view/view.module';
 
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: 'es-PE'
+    },
+    {
+      provide: LOCALE_ID,
+      useValue: 'es-PE'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
