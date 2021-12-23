@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IVenta } from 'src/app/interfaces/venta';
 
 @Component({
   selector: 'app-inicio',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+
+
+  @Input() listaVentas: Array<IVenta> = [];
 
   constructor() { }
 

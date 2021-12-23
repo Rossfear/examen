@@ -21,6 +21,7 @@ export class UsuarioComponent implements OnInit {
   codMoneda: string;
   precio: number = 0;
   countndoc: number = 0;
+  totalVenta: number = 0;
   msjerror: string = null;
 
   fechaActual: any = new Date();
@@ -119,7 +120,8 @@ export class UsuarioComponent implements OnInit {
 
     const body = this.form.value;
 
-    const id         = 'VEN-'+this.listaVentas.length + 1;
+    const length = this.listaVentas.length + 1;
+    const id         = 'VEN-'+length;
     const valorDesc  = Number(body.descuento) ?? 0;
     const descmonto  = this.precio / 100 * valorDesc;
 
@@ -133,6 +135,18 @@ export class UsuarioComponent implements OnInit {
     this.ventaActual.totalVenta     = this.sfn.roundDecimal(this.precio - descmonto, 2);
 
     console.log(this.ventaActual);
+  }
+
+
+  calcularTotal() {
+
+    const dsc        =  Number(this.form.controls.descuento.value) ?? 0;
+    const descmonto  = this.precio / 100 * dsc;
+    const tot        = this.precio - descmonto;
+
+
+    this.totalVenta  = this.sfn.roundDecimal(tot, 4);
+
   }
 
   exeception( error: any ) {

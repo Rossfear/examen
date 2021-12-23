@@ -56,6 +56,7 @@
                   </label>
                   <input  type="number" name="numerodocumento" class="text-sm forms-control w-full  focus mb-1"
                       [class.error]="false" required placeholder="Ingresa una Identificación"
+                      maxlength="11"
                       formControlName="numerodocumento">
 
                   <p *ngIf="nDocumentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
@@ -71,22 +72,6 @@
                   <p *ngIf="clienteInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
               </div>
 
-              <!-- Descuento -->
-              <div class=" w-full sm:mb-1">
-                  <label class=" labelclass">Ingrese % descuento:</label>
-                  <input class="text-sm forms-control py-1 w-full focus mb-1"
-                      [class.error]="descuentoInvalid" placeholder="5"
-                      formControlName="descuento">
-
-                  <p *ngIf="descuentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este
-                      campo.</p>
-
-              </div>
-
-              <!-- SERVICIO  -->
-              <div class=" w-full sm:mb-1">
-
-              </div>
 
 
               <!-- SERVICIO  -->
@@ -107,6 +92,36 @@
               <div class=" w-full sm:mb-1">
                 <h2 class="my-1 text-sm font-medium text-green-700 pt-8 pl-10"> {{ precio | currency: codMoneda}} </h2>
               </div>
+
+
+              <!-- Descuento -->
+              <div class=" w-full sm:mb-1">
+                <label class=" labelclass">Ingrese % descuento:</label>
+                <input class="text-sm forms-control py-1 w-full focus mb-1"
+                    [class.error]="descuentoInvalid" placeholder="5" type="number"
+                    (keyup)="calcularTotal()"
+                    formControlName="descuento">
+
+                <p *ngIf="descuentoInvalid" class="text-red-700 text-xs italic"> Por favor rellene este campo.</p>
+
+              </div>
+
+              <!-- SERVICIO  -->
+              <div class=" w-full sm:mb-1">
+
+              </div>
+
+              <!-- TOTAL  -->
+              <div class=" w-max ">
+                <h2 class="my-1 text-sm font-medium text-green-700 pt-8 pl-10"> TOTAL: {{totalVenta | currency: codMoneda}}</h2>
+              </div>
+
+              <!-- SERVICIO  -->
+              <div class=" w-full sm:mb-1">
+
+              </div>
+
+
 
               <footer class="flex items-center justify-center sm:justify-end sm:p-3 sm:space-x-4">
                 <!-- Boton Guardar -->

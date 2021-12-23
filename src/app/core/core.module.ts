@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingComponent } from './loading/loading.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -10,6 +11,7 @@ import { LoadingComponent } from './loading/loading.component';
   ],
   imports: [
     CommonModule,
+    NgxSpinnerModule,
 
   ],
   exports: [
